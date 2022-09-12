@@ -7,9 +7,10 @@
     <script>
         fetch('http://localhost:8080/People/api/findAll/').then(response => response.json())
         .then(data => {
-            storedData = data;
+            document.body.innerHTML = JSON.stringify(data);
             console.log(data);
         });
+
     </script>
 </body>
 </html>
