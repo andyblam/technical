@@ -16,16 +16,36 @@ import java.util.ArrayList;
 
 public class PeopleController {
     // lack of database --> no CRUDREPO --> need to make a local db? List? ArrayList?
-    List<People> idx = new ArrayList<People>();
     PeopleRepository repo =new PeopleRepository();
+    List<People> indx = repo.init_repo();
+    
     
     @GetMapping("/findID/{id}") 
     public People findID(@PathVariable String id) {
         return repo.findByID(idx, id);
     }
 
-    @GetMapping() 
+    @GetMapping("/findAll") 
     public List<People> findAll() {
-        return idx;
+        return indx;
     }
+
+    @GetMapping()
+    public String landingPage() {
+        return "Hello! This is Andy Lam's simple demonstration of a Srping API.";
+    }
+
+    @GetMapping("/htmlPageFindID")
+    public String findID_html {
+        return "findID_html"
+    }
+
+    @GetMapping("/htmlPageFindAll")
+    public String findAll_html {
+        return "findAll_html"
+    }
+
+
+
+    
 }
