@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html>
+<head> 
+    <title>Finding All People</title> 
+</head>
+<body>
+    <script>
+        fetch('http://localhost:8080/People/api/findAll/').then(response => response.json())
+        .then(data => {
+            storedData = data;
+            console.log(data);
+        });
+    </script>
+</body>
+</html>
